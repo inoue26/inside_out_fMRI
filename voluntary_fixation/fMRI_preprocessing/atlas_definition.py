@@ -1,7 +1,11 @@
-parc_path = 'voluntary_fixation/fMRI_preprocessing/atlas/HCP-MMP1_on_MNI152_ICBM2009c_nlin.nii.gz'  # 88616 voxels in total out of 238955
-parc_path_lr = 'voluntary_fixation/fMRI_preprocessing/atlas/HCP-MMP1_on_MNI152_ICBM2009c_nlin_lr.nii.gz'
-parc_lh_path = 'voluntary_fixation/fMRI_preprocessing/atlas/lh.HCP-MMP1.annot'
-parc_rh_path = 'voluntary_fixation/fMRI_preprocessing/atlas/rh.HCP-MMP1.annot'
+import os as _os
+# atlas/ はこのファイルと同じディレクトリにあるので、CWD に依存せず __file__ から解決する
+_ATLAS_DIR = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), 'atlas')
+
+parc_path = _os.path.join(_ATLAS_DIR, 'HCP-MMP1_on_MNI152_ICBM2009c_nlin.nii.gz')  # 88616 voxels in total out of 238955
+parc_path_lr = _os.path.join(_ATLAS_DIR, 'HCP-MMP1_on_MNI152_ICBM2009c_nlin_lr.nii.gz')
+parc_lh_path = _os.path.join(_ATLAS_DIR, 'lh.HCP-MMP1.annot')
+parc_rh_path = _os.path.join(_ATLAS_DIR, 'rh.HCP-MMP1.annot')
 
 ROIs_22 = [
     {"name": "Primary Visual Cortex", "idxs": [1]},  # 2422

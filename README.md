@@ -1,8 +1,9 @@
 # studyforrest_voluntary_fixation
 
 # Data
-* fMRI and eyetracking data (https://www.nature.com/articles/sdata201692#Sec33)
-* Movie data (forrest_gump.mkv (format=matrosika, H264 codec, 1920x1080, 23.98 fps Duration: 02:22:09.44, bitrate: 30573 kb/s))
+This code requires data used in [Studyforrest](https://www.nature.com/articles/sdata201692#Sec33)
+* fMRI and eyetracking data (https://openneuro.org/datasets/ds000113/versions/1.3.0)
+* Movie data (forrest_gump (format=matrosika, H264 codec, 1920x1080, 23.98 fps Duration: 02:22:09.44, bitrate: 30573 kb/s))
 
 # Setup
 1. run `pip install -r requirements.txt`

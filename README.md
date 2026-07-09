@@ -7,12 +7,6 @@
 # fMRI preprocessing
 Please refer [fMRI preprocessing README](voluntary_fixation/fMRI_preprocessing/README.md)
 
-# Movie Segmentation
-1. Get forrest_gump_bluray_orig.mkv file (format=matrosika, H264 codec, 1920x1080, 23.98 fps Duration: 02:22:09.44, bitrate: 30573 kb/s).
-2. put forrest_gump_bluray_orig.mkv file into ./movie_segmentation/movies
-3. change directory into ./movie_segmentation and run `./my_mk_movie_stimulus.sh`. (This script requires docker.)
-4. (Validation): check if the cut timing between authors log and each segment*.mkv made in step3.
-
 # Data Processing
 1. create mask                     :: run `python voluntary_fixation/data_processing/create_mask.py` to get boolean fixation(PURS, FIXA) mask image whose size is same as movie(720,1280).
 2. extract movie frames            :: run `python voluntary_fixation/data_processing/extract_frames_from_kv.py` to extract frames by TR(default=2) with offset(default=0) seconds from the movie.

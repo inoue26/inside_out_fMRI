@@ -1,7 +1,7 @@
 # studyforrest_voluntary_fixation
 
 # Data
-This code requires data used in [Studyforrest](https://www.nature.com/articles/sdata201692#Sec33)
+This code requires data used in [StudyForrest](https://www.studyforrest.org/data.html)
 * fMRI and eyetracking data (https://openneuro.org/datasets/ds000113/versions/1.3.0)
 * Movie data (forrest_gump (format=matrosika, H264 codec, 1920x1080, 23.98 fps Duration: 02:22:09.44, bitrate: 30573 kb/s))
 

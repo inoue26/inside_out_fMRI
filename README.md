@@ -98,3 +98,7 @@ python voluntary_fixation/functional_connectivity/eval_static_fc.py --roi -1 -nb
 python voluntary_fixation/functional_connectivity/eval_static_fc.py --roi -1 -nbo -iq 0.5 -sq 0.7 --src_roi 36 -sd -1 --tgt_roi 37 -td 2
 
 ```
+
+2. visualization for correlation between FC and gaze shift frequency [notebook](submit_code2/voluntary_fixation/figure5/figure5a_fc_and_gaze_shift_freq.ipynb)
+
+3. visualization for correlation between R-TPOJ performance and gaze shift frequency [notebook](submit_code2/voluntary_fixation/figure5/figure5b_bold2feat_score_vs_gaze_shift_freq.ipynb)

@@ -16,6 +16,10 @@ from sklearn.decomposition import PCA
 
 from align_utils import obtain_mask, calc_irc, compare_irc, draw_heatmap, align_2_rois, plot_dims
 from atlas_definition import parc_path, ROIs_22, ROIs_22_sub, ROIs_180, ROIs_180_sub
+from paths import BOLD_DIR, BOLD_INT_DIR
+
+# 注意: これは roi22LR_np 生成には不要な「別解析（ROI 間アラインメント）」。
+# bold_int の base/all/rois は prepare_npz.py が自前で作るので、通常このスクリプトは走らせなくてよい。
 
 # warnings.simplefilter('ignore')
 warnings.simplefilter('ignore', category=RuntimeWarning)
@@ -38,12 +42,13 @@ def evaluate_alignment(bold_base, sub, ROIs, train_idxs, test_idxs, n_latent, n_
     cond_str = cond_str_2 + f"feat{n_feature}_"
     print(cond_str)
 
-    data_base_fn = cond_str_0 + "base.bin"
-    data_rois_fn = cond_str_1 + "rois.bin"
-    all_data_rois_fn = cond_str_1 + "all.bin"
-    evr_rois_fn = cond_str_2 + "evr.bin"
-    train_data_rois_fn = cond_str_2 + "train.bin"
-    test_data_rois_fn = cond_str_2 + "test.bin"
+    _int = BOLD_INT_DIR + os.sep
+    data_base_fn = _int + cond_str_0 + "base.bin"
+    data_rois_fn = _int + cond_str_1 + "rois.bin"
+    all_data_rois_fn = _int + cond_str_1 + "all.bin"
+    evr_rois_fn = _int + cond_str_2 + "evr.bin"
+    train_data_rois_fn = _int + cond_str_2 + "train.bin"
+    test_data_rois_fn = _int + cond_str_2 + "test.bin"
 
     # save parameters for analysis
     params_fn = cond_str + "params.npz"
@@ -209,9 +214,10 @@ def evaluate_alignment(bold_base, sub, ROIs, train_idxs, test_idxs, n_latent, n_
 
 
 def main():
-    bold_base = './'
+    bold_base = BOLD_DIR + os.sep
+    os.makedirs(BOLD_INT_DIR, exist_ok=True)
 
-    subs = ['01']
+    subs = ['01', '02', '03', '04', '06', '10', '14', '15', '16', '17', '18', '19']
     n_sub = len(subs)
 
     # ROI definition

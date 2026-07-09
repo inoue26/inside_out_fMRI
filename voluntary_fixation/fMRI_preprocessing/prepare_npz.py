@@ -18,6 +18,7 @@ from sklearn.decomposition import PCA
 # from align_utils import obtain_mask, calc_irc, compare_irc, draw_heatmap, align_2_rois, plot_dims
 from align_utils import obtain_mask, plot_dims
 from atlas_definition import parc_path, parc_path_lr, ROIs_22, ROIs_22_LR, ROIs_22_sub, ROIs_180, ROIs_180_LR, ROIs_180_sub
+from paths import BOLD_DIR, BOLD_INT_DIR, npz_dir
 
 # warnings.simplefilter('ignore')
 warnings.simplefilter('ignore', category=RuntimeWarning)
@@ -215,26 +216,16 @@ def main():
     side = args.side
     n_roi = args.n_roi
 
-    # bold_base = '../../data/life/fmri_2/bold/'
-    # bold_base = '../../data_transfer/life/fmri_2/bold/'
-    bold_base = '../../data/forrestgump/studyforrest/bold/' # '../../data_transfer/studyforrest/fmri/bold/'
-    # int_base = '../../data/life/fmri_2/bold_int/'
-    # int_base = '../../data_transfer/life/fmri_2/bold_int/'
-    int_base = '../../data/forrestgump/studyforrest/bold_int/'
+    bold_base = BOLD_DIR + os.sep          # 手順1 の出力（denoise 済み BOLD）
+    int_base = BOLD_INT_DIR + os.sep       # bold_int の中間物（無ければ bold/ から自動生成）
+    os.makedirs(int_base, exist_ok=True)
 
-    # subs = ['01']
-    # LIFE
-    # subs = ['01', '05', '06', '09', '12', '14', '17', '19', '20', '24', '27', '31', '32', '33', '34', '36', '37', '38', '41']  # 19
-    # subs = ['01', '05', '06', '09', '12', '14', '17', '19', '24', '27', '31', '32', '33', '34', '36', '37', '38', '41']  # 18
-    # forrest
-    subs = ['01']# , '02', '03', '04', '06', '10', '14', '15', '16', '17', '18', '19']
+    # 機能データが揃う 12 名（05,09,20 は除外）
+    subs = ['01', '02', '03', '04', '06', '10', '14', '15', '16', '17', '18', '19']
     n_sub = len(subs)
 
-    # npz_base = f'../../data/life/fmri_2/roi{n_roi}_np/'
-    # LIFE
-    # npz_base = f'../../data_transfer/life/fmri_2/roi{n_roi}_np/'
-    # forrest
-    npz_base = f'../../data/forrestgump/studyforrest/fmri/roi{n_roi}{side}_np_unnorm/'
+    # SRM 入力 npz の出力先: side='' → roi22_np/ , side='LR' → roi22LR_np/
+    npz_base = npz_dir(n_roi, side) + os.sep
     os.makedirs(npz_base, exist_ok=True)
     # LIFE
     # run 1: 374, run 2: 346, run 3: 377, run 4: 412

@@ -2,12 +2,14 @@ import os
 # import glob
 
 from preprocessing_utils import preprocess
+from paths import DATASETS_OUT, BOLD_DIR
 
 TR = 2.0
 
 
 def main():
-    base_dir = os.path.join('..', '..', '..', 'datasets_out')
+    base_dir = DATASETS_OUT
+    os.makedirs(BOLD_DIR, exist_ok=True)
     run_ids = [1, 2, 3, 4, 5, 6, 7, 8]
     # run_ids = [1]
 
@@ -26,7 +28,7 @@ def main():
                 confound = os.path.join(subject_dir, f'sub-{subject_id}_ses-movie_task-movie_run-{run_id}_desc-confounds_timeseries.tsv')
                 bold = os.path.join(subject_dir, f'sub-{subject_id}_ses-movie_task-movie_run-{run_id}_space-MNI152NLin2009cAsym_desc-preproc_bold.nii.gz')
 
-                output_bold = f'sub-{subject_id}_run-{run_id}' + '_space-MNI152NLin2009cAsym_bold.nii.gz'
+                output_bold = os.path.join(BOLD_DIR, f'sub-{subject_id}_run-{run_id}_space-MNI152NLin2009cAsym_bold.nii.gz')
 
                 print('preprocessing:', output_bold)
                 _ = preprocess(bold, confound, TR, output_bold=output_bold)

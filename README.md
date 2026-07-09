@@ -107,3 +107,7 @@ python voluntary_fixation/functional_connectivity/eval_static_fc.py --roi -1 -nb
 2. visualization for correlation between FC and gaze shift frequency [notebook](submit_code2/voluntary_fixation/figure5/figure5a_fc_and_gaze_shift_freq.ipynb)
 
 3. visualization for correlation between R-TPOJ performance and gaze shift frequency [notebook](submit_code2/voluntary_fixation/figure5/figure5b_bold2feat_score_vs_gaze_shift_freq.ipynb)
+
+
+# Note
+This repository is provided for reference and reproducibility of the analysis described in the paper. It cannot be run end-to-end without the movie stimuli from the StudyForrest dataset, which are subject to third-party copyright and are not redistributed here. No support or maintenance is provided.

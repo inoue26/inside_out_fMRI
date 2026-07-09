@@ -1,5 +1,7 @@
 # studyforrest fMRI 前処理 → SRM 入力 npz 作成手順
 
+*日本語版。English: [README.en.md](README.en.md).*
+
 ds000113（StudyForrest, `ses-movie/task-movie`, 8 run）から、denoise 済み BOLD・ROI 中間物・
 SRM 入力 npz を作るパイプライン。生成物は次の 3 つ:
 

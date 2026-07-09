@@ -17,7 +17,7 @@ from termcolor import cprint
 
 
 def get_behavior(iou_q, saliency_TR_q, behavior_mode:str):
-    behavior_path = os.path.join(SAVE_ROOT, 'behavior','behaviors20251029.csv')
+    behavior_path = os.path.join(SAVE_ROOT, 'behavior','behaviors.csv')
     behavior_df = pd.read_csv(behavior_path)
     target_df = behavior_df.query(f'iou_q=={iou_q} and saliency_TR_q=={saliency_TR_q}')
     # import pdb; pdb.set_trace()

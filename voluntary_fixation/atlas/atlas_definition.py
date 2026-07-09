@@ -1,7 +1,12 @@
-parc_path = '/home/kazu/shared_response/codes/shared_response_model/align_fmri/align_fmri/atlas/HCP-MMP1_on_MNI152_ICBM2009c_nlin.nii.gz'  # 88616 voxels in total out of 238955
-parc_path_lr = '/home/kazu/shared_response/codes/shared_response_model/align_fmri/align_fmri/atlas/HCP-MMP1_on_MNI152_ICBM2009c_nlin_lr.nii.gz'
-parc_lh_path = '/home/kazu/shared_response/codes/shared_response_model/align_fmri/align_fmri/atlas/lh.HCP-MMP1.annot'
-parc_rh_path = '/home/kazu/shared_response/codes/shared_response_model/align_fmri/align_fmri/atlas/rh.HCP-MMP1.annot'
+import os as _os
+# The HCP-MMP1 atlas files are bundled in the repo under fMRI_preprocessing/atlas/.
+# Resolve them from __file__ so this works regardless of CWD or install location.
+_ATLAS_DIR = _os.path.join(_os.path.dirname(_os.path.abspath(__file__)), '..', 'fMRI_preprocessing', 'atlas')
+
+parc_path = _os.path.join(_ATLAS_DIR, 'HCP-MMP1_on_MNI152_ICBM2009c_nlin.nii.gz')  # 88616 voxels in total out of 238955
+parc_path_lr = _os.path.join(_ATLAS_DIR, 'HCP-MMP1_on_MNI152_ICBM2009c_nlin_lr.nii.gz')
+parc_lh_path = _os.path.join(_ATLAS_DIR, 'lh.HCP-MMP1.annot')
+parc_rh_path = _os.path.join(_ATLAS_DIR, 'rh.HCP-MMP1.annot')
 
 ROIs_22 = [
     {"name": "Primary Visual Cortex", "idxs": [1]},  # 2422

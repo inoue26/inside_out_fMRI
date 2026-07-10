@@ -230,4 +230,3 @@ The Figure 5 notebooks write their PDFs to a `figures/` folder next to the noteb
 * The pipeline is staged: each step consumes the outputs of the previous step under
   `SAVE_ROOT` (`results/voluntary_fixation/`). Given correctly placed data, each stage —
   and each figure notebook — runs independently.
-* No support or maintenance is provided.
